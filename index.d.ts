@@ -234,255 +234,255 @@ Numeric types
 */
 declare abstract class Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
     toBytes(be?: boolean): Uint8Array
 }
 
 declare class u8 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
     toBytes(be?: boolean): Uint8Array;
 }
 
 declare class i8 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
     toBytes(be?: boolean): Uint8Array;
 }
 declare class u16 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 declare class i16 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class u32 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class i32 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class u64 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class i64 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class u128 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class i128 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 
 declare class usize implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class isize implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 
 declare class f32 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
 
 declare class f64 implements Numeric {
     constructor(number: number);
-    add(number: this): this;
-    sub(number: this): this;
-    mul(number: this): this;
-    div(number: this): this;
-    min(number: this): this;
-    max(number: this): this;
-    eq(number: this): boolean;
-    neq(number: this): boolean;
-    lt(number: this): boolean;
-    lte(number: this): boolean;
-    gt(number: this): boolean;
-    gte(number: this): boolean;  
-    toBytes(be?: boolean): Uint8Array; 
+    add(number: number): this;
+    sub(number: number): this;
+    mul(number: number): this;
+    div(number: number): this;
+    min(number: number): this;
+    max(number: number): this;
+    eq(number: number): boolean;
+    neq(number: number): boolean;
+    lt(number: number): boolean;
+    lte(number: number): boolean;
+    gt(number: number): boolean;
+    gte(number: number): boolean;  
+    toBytes(be?: boolean): Uint8Array;
 }
