@@ -35,13 +35,13 @@ export class AccountInfo {
     public is_signer: boolean
     public is_writable: boolean
     public executable: boolean
-    has(has: { [key: string]: SystemAccount | TokenAccount | AssociatedTokenAccount | Signer | AccountInfo | Pubkey }): this
+    has(has: Array<SystemAccount | TokenAccount | AssociatedTokenAccount | Signer | AccountInfo | Pubkey>): this
     getBump(): u8
     // Todo: Double check constraints syntax makes sense
     constraints(constraints: Constraint[]): this
     init(): void
     initIfNeeded(): void
-    close(to: AccountInfo): void
+    close(to: AccountInfo | SystemAccount | UncheckedAccount | Signer): void
 }
 
 export class SystemAccount {
@@ -119,71 +119,71 @@ export class TokenAccount extends AccountInfo {
     closeAuthority?: Pubkey
     LEN: usize
     balance: u64
-    derive(seeds: Seeds, mint: Pubkey, authority: Pubkey, program?: Pubkey): this
-    deriveWithBump(seeds: Seeds, mint: Pubkey, authority: Pubkey, bump: u8, program?: Pubkey): this
+    derive(seeds: Seeds, mint: Mint, authority: Pubkey, program?: Pubkey): this
+    deriveWithBump(seeds: Seeds, mint: Mint, authority: Pubkey, bump: u8, program?: Pubkey): this
 }
 
 export class TokenProgram {
     static approve(
         to: AccountInfo, 
         delegate: AccountInfo, 
-        authority: AccountInfo, 
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
         amount: u64
     ): Result
 
     static approveChecked(
-        to: AccountInfo, 
-        mint: AccountInfo, 
+        to: AccountInfo,
+        mint: AccountInfo | Mint, 
         delegate: AccountInfo, 
-        authority: AccountInfo, 
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
         amount: u64, 
         decimals: u8
     ): Result
 
     static burn(
-        mint: AccountInfo, 
-        from: AccountInfo, 
-        authority: AccountInfo, 
+        mint: AccountInfo | Mint, 
+        from: AccountInfo | TokenAccount | AssociatedTokenAccount, 
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
         amount: u64
     ): Result
 
     static closeAccount(
-        account: AccountInfo, 
-        destination: AccountInfo, 
-        authority: AccountInfo
+        account: AccountInfo | TokenAccount | AssociatedTokenAccount, 
+        destination: AccountInfo | TokenAccount | AssociatedTokenAccount, 
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
     ): Result
 
     static freezeAccount(
-        account: AccountInfo,
-        mint: AccountInfo,
-        authority: AccountInfo
+        account: AccountInfo | TokenAccount | AssociatedTokenAccount,
+        mint: AccountInfo | Mint,
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
     ): Result
 
     // Implement initialize_account3 instead because initialize_account is deprecated
     static initializeAccount(
-        account: AccountInfo,
-        mint: AccountInfo,
-        authority: AccountInfo
+        account: AccountInfo | TokenAccount | AssociatedTokenAccount,
+        mint: AccountInfo | Mint,
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
     ): Result
     
     // Implement initialize_mint2 instead because initialize_mint is deprecated
     static initializeMint(
-        mint: AccountInfo,
+        mint: AccountInfo | Mint,
         decimals: u8,
-        authority: Pubkey,
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
         freezeAuthority?: Pubkey
     ): Result
 
     static mintTo(
-        mint: AccountInfo, 
-        to: AccountInfo, 
-        authority: AccountInfo, 
+        mint: AccountInfo | Mint, 
+        to: AccountInfo | TokenAccount | AssociatedTokenAccount, 
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
         amount: u64
     ): Result
 
     static revoke(
         source: AccountInfo, 
-        authority: AccountInfo
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
     ): Result
 
     static setAuthority(
@@ -199,23 +199,23 @@ export class TokenProgram {
 
     static thawAccount(
         account: AccountInfo,
-        mint: AccountInfo,
-        authority: AccountInfo
+        mint: AccountInfo | Mint,
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
     ): Result
 
     static transfer(
-        from: AccountInfo,
-        to: AccountInfo,
-        authority: AccountInfo,
+        from: AccountInfo | TokenAccount | AssociatedTokenAccount,
+        to: AccountInfo | TokenAccount | AssociatedTokenAccount,
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
         amount: u64,
         signingSeeds?: Seeds
     ): Result
 
     static transferChecked(
-        from: AccountInfo,
-        mint: AccountInfo,
-        to: AccountInfo,
-        authority: AccountInfo,
+        from: AccountInfo | TokenAccount | AssociatedTokenAccount,
+        mint: AccountInfo | Mint,
+        to: AccountInfo | TokenAccount | AssociatedTokenAccount,
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
         amount: u64,
         decimals: u8,
         signingSeeds?: Seeds
