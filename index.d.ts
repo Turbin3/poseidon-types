@@ -13,7 +13,6 @@ export class PoseidonError {
 
 export class Signer {
     public key: Pubkey;
-    toAccountInfo(): AccountInfo
 }
 
 type Seeds = Array<string | Uint8Array | Pubkey>
@@ -55,7 +54,6 @@ export class SystemAccount {
     public is_writable: boolean
     public executable: boolean
     getBump(): u8
-    toAccountInfo(): AccountInfo
     derive(seeds: Seeds, program?: Pubkey): AccountInfo
     deriveWithBump(seeds: Seeds, bump: u8, program?: Pubkey): AccountInfo
 }
@@ -75,8 +73,8 @@ System Program
 */
 export class SystemProgram {
     static transfer(
-        from: AccountInfo,
-        to: AccountInfo,
+        from: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+        to: AccountInfo | SystemAccount | UncheckedAccount | Signer,
         amount: u64,
         signingSeeds?: Seeds
     ): Result
