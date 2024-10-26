@@ -230,6 +230,11 @@ export class AssociatedTokenAccount extends AccountInfo {
 }
 
 /*
+String
+*/
+declare class String {}
+
+/*
 Numeric types
 */
 declare abstract class Numeric {
