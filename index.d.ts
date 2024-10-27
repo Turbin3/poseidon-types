@@ -232,8 +232,22 @@ export class AssociatedTokenAccount extends AccountInfo {
 /*
 String
 */
-declare class String {}
+export class String<N extends number> {
+    length: N;
+}
 
+/*
+boolean
+*/
+declare class Boolean {}
+
+/*
+vector
+*/
+export class Vec<T, N extends number> {
+    type: T;
+    length: N;
+}
 /*
 Numeric types
 */
