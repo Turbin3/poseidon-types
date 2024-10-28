@@ -149,8 +149,9 @@ export class TokenProgram {
 
     static closeAccount(
         account: AccountInfo | TokenAccount | AssociatedTokenAccount, 
-        destination: AccountInfo | TokenAccount | AssociatedTokenAccount, 
-        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
+        destination: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+        signingSeeds?: Seeds
     ): Result
 
     static freezeAccount(
