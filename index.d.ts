@@ -118,7 +118,6 @@ export class TokenAccount extends AccountInfo {
     delegatedAmount: u64
     closeAuthority?: Pubkey
     LEN: usize
-    balance: u64
     derive(seeds: Seeds, mint: Mint, authority: Pubkey, program?: Pubkey): this
     deriveWithBump(seeds: Seeds, mint: Mint, authority: Pubkey, bump: u8, program?: Pubkey): this
 }
@@ -227,6 +226,15 @@ export class TokenProgram {
 Associated Token Program
 */
 export class AssociatedTokenAccount extends AccountInfo {
+    mint: Pubkey
+    owner: Pubkey
+    amount: u64
+    delegate?: Pubkey
+    state: AccountState
+    isNative?: u64
+    delegatedAmount: u64
+    closeAuthority?: Pubkey
+    LEN: usize
     derive(mint: Mint, authority: Pubkey): TokenAccount
 }
 
