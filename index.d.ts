@@ -127,7 +127,8 @@ export class TokenProgram {
         to: AccountInfo, 
         delegate: AccountInfo, 
         authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
-        amount: u64
+        amount: u64,
+        signingSeeds?: Seeds
     ): Result
 
     static approveChecked(
@@ -136,14 +137,16 @@ export class TokenProgram {
         delegate: AccountInfo, 
         authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
         amount: u64, 
-        decimals: u8
+        decimals: u8,
+        signingSeeds?: Seeds
     ): Result
 
     static burn(
         mint: AccountInfo | Mint, 
         from: AccountInfo | TokenAccount | AssociatedTokenAccount, 
         authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
-        amount: u64
+        amount: u64,
+        signingSeeds?: Seeds
     ): Result
 
     static closeAccount(
@@ -156,51 +159,59 @@ export class TokenProgram {
     static freezeAccount(
         account: AccountInfo | TokenAccount | AssociatedTokenAccount,
         mint: AccountInfo | Mint,
-        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+        signingSeeds?: Seeds
     ): Result
 
     // Implement initialize_account3 instead because initialize_account is deprecated
     static initializeAccount(
         account: AccountInfo | TokenAccount | AssociatedTokenAccount,
         mint: AccountInfo | Mint,
-        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+        signingSeeds?: Seeds
     ): Result
     
     // Implement initialize_mint2 instead because initialize_mint is deprecated
     static initializeMint(
         mint: AccountInfo | Mint,
-        decimals: u8,
         authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
-        freezeAuthority?: Pubkey
+        decimals: u8,
+        freezeAuthority?: Pubkey,
+        signingSeeds?: Seeds
     ): Result
 
     static mintTo(
         mint: AccountInfo | Mint, 
         to: AccountInfo | TokenAccount | AssociatedTokenAccount, 
         authority: AccountInfo | SystemAccount | UncheckedAccount | Signer, 
-        amount: u64
+        amount: u64,
+        signingSeeds?: Seeds
     ): Result
 
     static revoke(
         source: AccountInfo, 
-        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+        signingSeeds?: Seeds
     ): Result
 
     static setAuthority(
         currentAuthority: AccountInfo,
         accountOrMint: AccountInfo,
         authorityType: AuthorityType,
-        newAuthority?: Pubkey
+        newAuthority?: Pubkey,
+        signingSeeds?: Seeds
     ): Result
 
     static syncNative(
-        account: AccountInfo
+        account: AccountInfo,
+        signingSeeds?: Seeds
     ): Result
 
     static thawAccount(
         account: AccountInfo,
         mint: AccountInfo | Mint,
-        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer
+        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+        signingSeeds?: Seeds
     ): Result
 
     static transfer(
@@ -208,7 +219,7 @@ export class TokenProgram {
         to: AccountInfo | TokenAccount | AssociatedTokenAccount,
         authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
         amount: u64,
-        signingSeeds?: Seeds
+        signingSeeds?: Seeds,
     ): Result
 
     static transferChecked(
