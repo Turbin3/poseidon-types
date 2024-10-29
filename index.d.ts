@@ -39,8 +39,8 @@ export class AccountInfo {
     getBump(): u8
     // Todo: Double check constraints syntax makes sense
     constraints(constraints: Constraint[]): this
-    init(): void
-    initIfNeeded(): void
+    init(payer: AccountInfo | SystemAccount | UncheckedAccount | Signer): void
+    initIfNeeded(payer: AccountInfo | SystemAccount | UncheckedAccount | Signer): void
     close(to: AccountInfo | SystemAccount | UncheckedAccount | Signer): void
 }
 
