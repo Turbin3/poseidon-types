@@ -72,12 +72,17 @@ export class Account extends AccountInfo {
 System Program
 */
 export class SystemProgram {
-    static transfer(
-        from: AccountInfo | SystemAccount | UncheckedAccount | Signer,
-        to: AccountInfo | SystemAccount | UncheckedAccount | Signer,
-        amount: u64,
-        signingSeeds?: Seeds
-    ): Result
+  static transfer(
+    from: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+    to: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+    amount: u64,
+    signingSeeds?: Seeds
+  ): Result;
+  static createAccount(
+    from: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+    to: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+    accountData: Account | Signer
+  ): Result;
 }
 
 /*
