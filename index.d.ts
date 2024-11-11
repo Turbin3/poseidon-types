@@ -2,6 +2,8 @@
 Standard Types
 */
 
+import { ProgrammableConfig,CollectionDetails } from "./index";
+
 export class Pubkey {
     constructor(id: string | Uint8Array)
     toBytes(be?: boolean): Uint8Array
@@ -68,6 +70,26 @@ export class Account extends AccountInfo {
     deriveWithBump(seeds: Seeds, bump: u8, program?: Pubkey): AccountInfo
 }
 
+export class Metadata {
+  key: Key; // Typically Key::MetadataV1
+  update_authority: Pubkey;
+  mint: Pubkey;
+  name: String<30>;
+  symbol: String<15>;
+  uri: String<60>;
+  seller_fee_basis_points: u16;
+  creators: Option<Vec<Creator, 10>>;
+  primary_sale_happened: boolean;
+  is_mutable: boolean;
+  edition_nonce: Option<u8>;
+  token_standard: Option<TokenStandard>;
+  collection: Option<Collection>;
+  uses: Option<Uses>;
+  collection_details: Option<CollectionDetails>;
+  programmable_config: Option<ProgrammableConfig>;
+  derive(seeds: Seeds, program?: Pubkey): AccountInfo;
+  deriveWithBump(seeds: Seeds, bump: u8, program?: Pubkey): AccountInfo;
+}
 /*
 System Program
 */
@@ -79,7 +101,18 @@ export class SystemProgram {
         signingSeeds?: Seeds
     ): Result
 }
-
+/*
+Metadata Program
+*/
+export class MetadataProgram {
+  static createMetadataAccountsV3(
+    metadatav3: CreateMetadataV3,
+    dataV2: DataV2,
+    is_mutable:Boolean,
+    update_authority_is_signer:Boolean, 
+    collection_details : Option<Collection>
+  ):Result;
+}
 /*
 Token Program
 */
@@ -525,3 +558,104 @@ declare class f64 implements Numeric {
     gte(number: number): boolean;  
     toBytes(be?: boolean): Uint8Array;
 }
+
+/**
+ * Represents an option of type `T` that has a value.
+ *
+ * @see {@link Option}
+ * @category Utils — Options
+ */
+export type Some<T> = { __option: 'Some'; value: T };
+
+/**
+ * Represents an option of type `T` that has no value.
+ *
+ * @see {@link Option}
+ * @category Utils — Options
+ */
+export type None = { __option: 'None' };
+
+/**
+ * An implementation of the Rust Option type in JavaScript.
+ * It can be one of the following:
+ * - <code>{@link Some}<T></code>: Meaning there is a value of type T.
+ * - <code>{@link None}</code>: Meaning there is no value.
+ */
+export type Option<T> = Some<T> | None;
+
+export enum UseMethod {
+    Burn,
+    Multiple,
+    Single,
+}
+
+export enum Key {
+  Uninitialized,
+  EditionV1,
+  MasterEditionV1,
+  ReservationListV1,
+  MetadataV1,
+  ReservationListV2,
+  MasterEditionV2,
+  EditionMarker,
+  UseAuthorityRecord,
+  CollectionAuthorityRecord,
+  TokenOwnedEscrow,
+  TokenRecord,
+  MetadataDelegate,
+  EditionMarkerV2,
+  HolderDelegate,
+}
+
+export enum TokenStandard {
+  NonFungible,
+  FungibleAsset,
+  Fungible,
+  NonFungibleEdition,
+  ProgrammableNonFungible,
+  ProgrammableNonFungibleEdition,
+}
+
+export class Uses {
+    constructor(
+        use_method: UseMethod,
+        remaining: u64,
+        total: u64
+    )
+}
+
+export class Collection {
+    constructor(
+        verified: Boolean,
+        key: Pubkey,
+    )
+}
+
+export class Creator {
+    constructor(
+        key: Pubkey,
+        verified: Boolean,
+        share:u8,
+    )
+}
+export class DataV2  {
+    constructor(
+        name:string,
+        symbol:string,
+        uri:string,
+        seller_fee_basis_points:u16,
+        creators: Option<Vec<Creator,10>>,
+        collection: Option<Collection>,
+        uses: Option<Uses>
+    )
+}
+
+export class CreateMetadataV3 {
+  constructor(
+    payer: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+    mint_authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+    update_authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
+    mint: Mint,
+  );
+}
+
