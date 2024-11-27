@@ -131,14 +131,25 @@ export enum AccountState {
 }
 
 export class Mint extends AccountInfo {
-    mintAuthority: Pubkey
-    supply: u64
-    decimals: u8
-    isInitialized: boolean
-    freezeAuthority?: Pubkey
-    LEN: usize
-    derive(seeds: Seeds): this
-    deriveWithBump(seeds: Seeds, bump: u8): this
+  mintAuthority: Pubkey;
+  supply: u64;
+  decimals: u8;
+  isInitialized: boolean;
+  freezeAuthority?: Pubkey;
+  LEN: usize;
+  derive(
+    decimals: u8,
+    authority: Pubkey,
+    freezeAuthority: Pubkey,
+    seeds?: Seeds
+  ): this;
+  deriveWithBump(
+    decimals: u8,
+    authority: Pubkey,
+    freezeAuthority: Pubkey,
+    seeds: Seeds,
+    bump: u8
+  ): this;
 }
 
 export class TokenAccount extends AccountInfo {
