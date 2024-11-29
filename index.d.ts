@@ -252,7 +252,7 @@ export class AssociatedTokenAccount extends AccountInfo {
 /*
 String
 */
-export class String<N extends number> {
+export class Str<N extends number> {
     length: N;
 }
 
