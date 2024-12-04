@@ -104,7 +104,7 @@ export class Mint extends AccountInfo {
     isInitialized: boolean
     freezeAuthority?: Pubkey
     LEN: usize
-    derive(seeds: Seeds): this
+    derive(seeds: Seeds | null, mintAuthority: Pubkey, decimals: number | u8, freezeAuthority?: Pubkey): this
     deriveWithBump(seeds: Seeds, bump: u8): this
 }
 
