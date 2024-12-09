@@ -170,15 +170,6 @@ export class TokenProgram {
         authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
         signingSeeds?: Seeds
     ): Result
-    
-    // Implement initialize_mint2 instead because initialize_mint is deprecated
-    static initializeMint(
-        mint: AccountInfo | Mint,
-        authority: AccountInfo | SystemAccount | UncheckedAccount | Signer,
-        decimals: u8,
-        freezeAuthority?: Pubkey,
-        signingSeeds?: Seeds
-    ): Result
 
     static mintTo(
         mint: AccountInfo | Mint, 
